@@ -39,10 +39,9 @@ public class MainPage extends BasePage {
     private final By orderButtonUp = By.xpath(".//button[@class='Button_Button__ra12g']");
     private final By orderButtonDown = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button");
 
-    public ForWhomPage clickOrderButtonUp() {
+    public void clickOrderButtonUp() {
         driver.findElement(orderButtonUp).isEnabled();
         driver.findElement(orderButtonUp).click();
-        return new ForWhomPage(driver);
     }
 
     public void scrollPageUntilOrderButtonDown() {
