@@ -1,6 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pages.MainPage;
 import org.junit.jupiter.api.AfterEach;
+import pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,15 +12,16 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DropdownChromeTest {
+public class DropdownChromeTest{
 
     private WebDriver driver;
+    private final String URL = "https://qa-scooter.praktikum-services.ru/";
 
     @BeforeEach
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(URL);
     }
 
     @AfterEach
@@ -29,7 +30,7 @@ public class DropdownChromeTest {
     }
 
     @ParameterizedTest
-    @MethodSource("credentialsProvider")
+    @MethodSource("dropdownTextProvider")
     public void checkTextUnderDropdown(int index, String expectedResult) {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.acceptCookies();
@@ -37,7 +38,7 @@ public class DropdownChromeTest {
         assertEquals(expectedResult, objMainPage.clickDropdown(index));
     }
 
-    private static Stream<Arguments> credentialsProvider() {
+    private static Stream<Arguments> dropdownTextProvider() {
         return Stream.of(
                 Arguments.of(0, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."),
                 Arguments.of(1, "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим."),

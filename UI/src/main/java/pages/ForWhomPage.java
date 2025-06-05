@@ -20,23 +20,16 @@ public class ForWhomPage extends BasePage {
     private final By continueButton = By.xpath(".//div[@class='Order_NextButton__1_rCA']/button");
 
     public void fillIntheFields(String nameValue, String surnameValue, String addressValue, String metroStationValue, String phoneNumberValue) {
-        driver.findElement(username).isEnabled();
         driver.findElement(username).sendKeys(nameValue);
-        driver.findElement(surname).isEnabled();
         driver.findElement(surname).sendKeys(surnameValue);
-        driver.findElement(address).isEnabled();
         driver.findElement(address).sendKeys(addressValue);
-        driver.findElement(metroStaton).isEnabled();
         driver.findElement(metroStaton).click();
-        driver.findElement(By.xpath(String.format(metroDropdown, metroStationValue))).isEnabled();
         driver.findElement(By.xpath(String.format(metroDropdown, metroStationValue))).click();
-        driver.findElement(phoneNumber).isEnabled();
         driver.findElement(phoneNumber).sendKeys(phoneNumberValue);
     }
 
     public void clickContinueButton() {
         scrollPageContinueButton();
-        driver.findElement(continueButton).isEnabled();
         driver.findElement(continueButton).click();
     }
 

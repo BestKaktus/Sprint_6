@@ -18,7 +18,7 @@ public class AboutRentalPage extends BasePage {
     private final By commentForCourier = By.xpath(".//input[contains(@placeholder,'Комментарий')]");
     private final By orderButton = RelativeLocator.with(By.xpath(".//button[contains(text(), 'Заказать')]")).below(commentForCourier);
 
-    public void fillIntheFields(String date, String duration, String colorId, String comment) {
+    public void fillAboutRentalPageFields(String date, String duration, String colorId, String comment) {
         driver.findElement(timeOfDelivery).isEnabled();
         driver.findElement(timeOfDelivery).click();
         driver.findElement(By.xpath(String.format(dateOfDelivery, date))).isEnabled();

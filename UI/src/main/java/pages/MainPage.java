@@ -40,7 +40,6 @@ public class MainPage extends BasePage {
     private final By orderButtonDown = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button");
 
     public void clickOrderButtonUp() {
-        driver.findElement(orderButtonUp).isEnabled();
         driver.findElement(orderButtonUp).click();
     }
 
@@ -51,7 +50,6 @@ public class MainPage extends BasePage {
 
     public void clickOrderButtonDown() {
         scrollPageUntilOrderButtonDown();
-        driver.findElement(orderButtonDown).isEnabled();
         driver.findElement(orderButtonDown).click();
     }
 

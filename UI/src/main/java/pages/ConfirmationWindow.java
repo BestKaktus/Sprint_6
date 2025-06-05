@@ -17,7 +17,6 @@ public class ConfirmationWindow extends BasePage{
 
     public void clickYesButton() {
         waitUntilButtonYesIsClickable();
-        driver.findElement(yesButton).isEnabled();
         driver.findElement(yesButton).click();
     }
 
